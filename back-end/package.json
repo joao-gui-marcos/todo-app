@@ -1,0 +1,26 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "4.17.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.2",
+    "sequelize-cli": "^6.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.12"
+  }
+}
