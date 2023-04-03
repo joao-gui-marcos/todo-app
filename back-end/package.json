@@ -2,7 +2,7 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/api/server.js",
   "scripts": {
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "start": "node .",
@@ -16,6 +16,7 @@
     "cors": "2.8.5",
     "dotenv": "^16.0.3",
     "express": "4.17.1",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.2",
     "sequelize-cli": "^6.5.1"
