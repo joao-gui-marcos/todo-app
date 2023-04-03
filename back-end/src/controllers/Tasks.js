@@ -8,14 +8,6 @@ const getAllTasks = async (_req, res) => Task
     res.status(500).end()
   });
 
-const getTask = (req, res) => Task
-  .findOne({ where: { id: req.params.id } })
-  .then((task) => res.status(200).json(task))
-  .catch((error) => {
-    console.error(error);
-    res.status(500).end()
-  });
-
 const addTask = (req, res) => Task
   .create({ description: req.body.description, check: false })
   .then((addedTask) => res.status(200).json(addedTask))
@@ -43,7 +35,6 @@ const putTask = ({ params, body }, res) => {
       res.status(500).end()
     });
 };
-
 
 module.exports = {
   getAllTasks,
