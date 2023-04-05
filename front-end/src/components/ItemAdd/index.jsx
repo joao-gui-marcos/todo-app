@@ -12,17 +12,15 @@ function ItemAdd() {
   return (
     <div className="item-add">
       <div>
-        <label>Nova tarefa:</label>
+        <label>New Task:</label>
         <input
-          data-testid="todo-task-input" 
-          value={description} 
+          value={description}
           onChange={
-            ({target: { value }}) => setDescription(value)
-          } 
+            ({ target: { value } }) => setDescription(value)
+          }
         />
       </div>
       <button
-        data-testid="todo-task-add"
         onClick={handleAdd}
       ><FaPlus /></button>
     </div>

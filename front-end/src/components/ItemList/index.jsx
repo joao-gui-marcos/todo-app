@@ -6,26 +6,25 @@ import './styles.css';
 function ItemList() {
   const { tasks, getTasks } = useContext(TaskContext);
 
-  useEffect(()=>{
-    if(tasks.length === 0){
+  useEffect(() => {
+    if (tasks.length === 0) {
       getTasks();
     }
   }, [tasks, getTasks]);
 
   return (
     <div
-      data-testid="todo-task-list"
       className="item-list"
     >
       {
         tasks.length > 0 && tasks
           .map(({ id, description, check }, index) => (
-            <ItemRow 
+            <ItemRow
               key={`${index}${Date.now()}`}
               index={index}
-              id={id} 
-              description={description} 
-              check={check} 
+              id={id}
+              description={description}
+              check={check}
             />
           ))
       }

@@ -9,9 +9,6 @@ export function TaskProvider({ children }) {
   const getTasks = async () => taskApi('GET', 'tasks')
     .then(({ data: tasks }) => setTasks(tasks));
 
-  const getTask = async (id) => taskApi('GET', `task/${id}`)
-    .then(({ data: task }) => task);
-
   const addTask = async (description) => taskApi('POST', 'task', { description })
     .then(getTasks);
 
@@ -21,18 +18,12 @@ export function TaskProvider({ children }) {
   const putTask = async (id, description, check) => taskApi('PUT', `task/${id}`, { description, check })
     .then(getTasks);
 
-  const resetTasks = async () => taskApi('POST', 'debug')
-    .then(() => true)
-    .catch(() => console.error('Fail fetching tasks'));
-
   const contextValue = {
     tasks,
     getTasks,
-    getTask,
     addTask,
     rmTask,
     putTask,
-    resetTasks
   };
 
   return (
