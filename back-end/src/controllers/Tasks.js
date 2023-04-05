@@ -8,13 +8,20 @@ const getAllTasks = async (_req, res) => Task
     res.status(500).end()
   });
 
-const addTask = (req, res) => Task
-  .create({ description: req.body.description, check: false })
-  .then((addedTask) => res.status(200).json(addedTask))
-  .catch((error) => {
+const addTask = async (req, res) => {
+  try {
+    const existingTask = await Task.findOne({ where: { description: req.body.description } });
+    if (existingTask) {
+      return res.status(409).json({ message: 'Task with the same description already exists' });
+    }
+    const newTask = await Task.create({ description: req.body.description, check: false });
+    return res.status(200).json(newTask);
+  } catch (error) {
     console.error(error);
-    res.status(500).end()
-  });
+    return res.status(500).end();
+  }
+};
+
 
 const rmTask = (req, res) => Task
   .destroy({ where: { id: req.params.id } })
