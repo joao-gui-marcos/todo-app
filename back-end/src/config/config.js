@@ -1,11 +1,11 @@
 require('dotenv').config();
 
 const config = {
-  username: "root",
-  password: "password",
-  database: "toDoListApp",
-  host: "localhost",
-  port: 3306,
+  username: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
   dialect: 'mysql',
 };
 
